@@ -14,7 +14,7 @@ token = os.getenv('MY_TOKEN')
 
 print(token)
 
-login(token)
+login("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")
 
 
 # Set device
@@ -25,7 +25,7 @@ model_id = "stabilityai/stable-diffusion-3.5-large"
 pipe = StableDiffusionPipeline.from_pretrained(
     model_id,
     torch_dtype=torch.float16 if torch.cuda.is_available() else torch.float32,  # Optimize memory usage
-    safety_checker=None,  
+    safety_checker=None,  # Disable safety check for faster inference (use with caution)
 ).to(device)
 
 # Enable memory-efficient optimizations (if on CUDA)
